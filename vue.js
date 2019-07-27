@@ -4469,7 +4469,7 @@
     var value;
     var vm = this.vm;
     try {
-      value = this.getter.call(vm, vm);
+      value = this.getter.call(vm, vm);//触发组件渲染函数  patch
     } catch (e) {
       if (this.user) {
         handleError(e, vm, ("getter for watcher \"" + (this.expression) + "\""));
