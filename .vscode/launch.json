@@ -1,0 +1,17 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "chrome",
+      "request": "launch",
+      "name": "调试vue",
+      "file": "${workspaceRoot}/index.html",
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Watcher-Observer-Dep关系",
+      "program": "${workspaceRoot}/Watcher-Observer-Dep关系/index.js"
+    },
+  ]
+}
