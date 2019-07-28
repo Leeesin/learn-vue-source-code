@@ -4930,7 +4930,6 @@
       cb,
       options
     ) {
-      console.log('expOrFn 的值是：',expOrFn);
       var vm = this;
       if (isPlainObject(cb)) {
         return createWatcher(vm, expOrFn, cb, options)

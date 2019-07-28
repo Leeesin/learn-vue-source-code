@@ -14,7 +14,10 @@
 
   <div id='app'>
     <h1>{{obj.a}}</h1>
-    <h1>{{obj.b}}</h1>
+
+    <h1>{{aaa}}</h1>
+
+
   </div>
 
 </body>
@@ -26,18 +29,30 @@
     el: "#app",
     data() {
       return {
-        test: 1,
         obj: {
-          a: '1',
-          b: '2',
+          a: 1,
+          b: 2,
+          childObj: {
+            xxx: 1,
+            xxx2: 1,
+          },
         }
       }
     },
+    watch: {
+      'obj.a': function () { },
+      'obj.b': function () { },
+      'obj.b.childObj': function () { },
+    },
+    computed: {
+      aaa() {
+        return this.obj.a + this.obj.b
+      },
+      aaa2() {
+        return this.obj.childObj.xxx
+      },
+    },
     mounted() {
-      this.$watch('obj.a', function () {
-      })
-      this.obj.a = '22222'
-
       console.log('this.obj 的值是：', this.obj);
     }
 
