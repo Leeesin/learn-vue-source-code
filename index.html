@@ -13,7 +13,8 @@
 <body>
 
   <div id='app'>
-    <!-- <h1>{{obj.a}}</h1> -->
+    <h1>{{obj.a}}</h1>
+    <h1>{{obj.b}}</h1>
   </div>
 
 </body>
@@ -27,14 +28,17 @@
       return {
         test: 1,
         obj: {
-          a: '1'
+          a: '1',
+          b: '2',
         }
       }
     },
     mounted() {
-      console.log('this.obj 的值是：', this.obj);
-      console.log('this.test 的值是：', this);
+      this.$watch('obj.a', function () {
+      })
+      this.obj.a = '22222'
 
+      console.log('this.obj 的值是：', this.obj);
     }
 
   })

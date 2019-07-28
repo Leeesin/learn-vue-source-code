@@ -4441,7 +4441,10 @@
     this.depIds = new _Set();
     this.newDepIds = new _Set();
     this.expression = expOrFn.toString();
-    // parse expression for getter
+    //watcher的实例属性 this.getter 为一个函数
+    // watcher分为 渲染 watcher 和用户定义的 watch 
+    // 1.若为 渲染 watcher ，执行 this.getter 将会更新组件 触发 patch ,最终更新dom
+    //2.若为 用户定义的 watch 或者 computed,执行 this.getter 将会把当前 watcher 加入 dep.subs数组内
     if (typeof expOrFn === 'function') {
       this.getter = expOrFn;
     } else {
@@ -4927,6 +4930,7 @@
       cb,
       options
     ) {
+      console.log('expOrFn 的值是：',expOrFn);
       var vm = this;
       if (isPlainObject(cb)) {
         return createWatcher(vm, expOrFn, cb, options)
